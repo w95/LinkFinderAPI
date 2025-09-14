@@ -171,17 +171,11 @@ def parser_file(content, regex_str, mode=1, more_regex=None, no_dup=1):
     return filtered_items
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def root():
     """Root endpoint with API information"""
     return {
-        "message": "LinkFinderAPI",
-        "description": "Discover endpoints and parameters in JavaScript files",
-        "version": "1.0.0",
-        "endpoints": {
-            "/analyze": "POST - Analyze JavaScript content for endpoints",
-            "/health": "GET - Health check endpoint"
-        }
+        "status": "ok"
     }
 
 
